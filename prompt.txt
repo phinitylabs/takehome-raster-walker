@@ -1,0 +1,42 @@
+Write a self-checking SystemVerilog testbench for the module
+`raster_walker` specified in docs/spec.md.
+
+Grading: your testbench is compiled and run, unmodified, against several
+implementations of raster_walker that are not visible to you. One of them
+conforms to docs/spec.md exactly; the others each contain a defect. Your
+testbench passes grading only if it passes the conforming implementation
+AND fails every defective one.
+
+Requirements:
+- Complete tb/tb_raster_walker.sv. The top-level module must remain
+  `tb_raster_walker`, and the file must stay self-contained: it may not
+  read other files or depend on plusargs.
+- Compatible with Icarus Verilog (-g2012). No concurrent SystemVerilog
+  Assertions (immediate procedural checks are fine). No DPI.
+- The DUT is instantiated as module `raster_walker` with the default W = 8
+  and exactly the ports in the spec. For each implementation under test the
+  grader replaces sources/raster_walker.sv and runs:
+      iverilog -g2012 -s tb_raster_walker -o sim.vvp \
+          sources/raster_walker.sv tb/tb_raster_walker.sv
+      vvp sim.vvp
+- Verdict contract, checked mechanically:
+  - if and only if every check passed: print a line containing TB_PASS,
+    then call $finish;
+  - on the first failed check: print a line containing TB_FAIL, then
+    terminate with $fatal(1);
+  - never print both TB_PASS and TB_FAIL in the same run. A run that ends
+    without printing either, or whose vvp execution exceeds a 30-second
+    wall-clock limit on unspecified grader hardware, is treated exactly as
+    if the testbench had printed TB_FAIL for that implementation. Do not
+    rely on hangs or timeouts as a failure mechanism: use an explicit
+    watchdog that prints TB_FAIL, and keep total simulated cycles well
+    under one million so a passing run finishes with ample margin.
+- The provided sources/raster_walker.sv is a non-functional stub with the
+  correct interface. It is not graded and is replaced during grading; you
+  may edit it locally (for example, write your own implementation of the
+  spec) to exercise your testbench.
+- Do not modify or create files outside sources/ and tb/. (Files your
+  simulation writes at run time, such as VCD dumps, are not covered by this
+  rule, but remove $dump* calls to keep runs fast.)
+
+Deliverable: the completed tb/tb_raster_walker.sv.
