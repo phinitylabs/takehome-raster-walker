@@ -2,7 +2,8 @@
 //
 // tb_raster_walker -- self-checking testbench for raster_walker.
 //
-// Complete this testbench according to prompt.txt and docs/spec.md.
+// THIS BRANCH IS YOURS: implement your golden testbench in this file,
+// according to prompt.txt and docs/spec.md, and push it to your fork.
 // Contract, checked mechanically by the grader:
 //   - print a line containing TB_PASS and call $finish if and only if
 //     every check passed;
