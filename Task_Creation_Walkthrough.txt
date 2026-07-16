@@ -69,9 +69,11 @@ post clone make sure you see all three branches
 
 ```bash
     git branch -a
-      raster_walker_baseline
-      raster_walker_golden
-      raster_walker_test
+    * raster_walker_baseline
+      remotes/origin/HEAD -> origin/raster_walker_baseline
+      remotes/origin/raster_walker_baseline
+      remotes/origin/raster_walker_golden
+      remotes/origin/raster_walker_test
 ```
 
 **Setup the framework repo (use Terminal 2):**
@@ -91,9 +93,11 @@ Set your API keys. Your HUD API key can be created on [hud.ai](https://hud.ai) â
 This framework uses **HUD v6**. Each problem runs in its own Docker image. The container serves a v6 control channel (`hud serve` on port 8765); the agent connects over SSH to edit files in the workspace. When the agent finishes, hidden tests grade the workspace via patch + pytest.
 
 ```bash
-hud set HUD_API_KEY=<your HUD key>
-hud set ANTHROPIC_API_KEY=<your Anthropic key from liaison>
+uv run hud set HUD_API_KEY=<your HUD key>
+uv run hud set ANTHROPIC_API_KEY=<your Anthropic key from liaison>
 ```
+
+> **Note:** if any `hud` command prints a banner suggesting you upgrade `hud-python`, ignore it â€” do not upgrade `hud-python`.
 
 ---
 
@@ -128,7 +132,7 @@ The repo has three important branches:
 | Branch                   | What's on it                                                                                    |
 | ------------------------ | ----------------------------------------------------------------------------------------------- |
 | `raster_walker_baseline` | The starting point: spec + stub + testbench skeleton. **This is what the agent sees.**          |
-| `raster_walker_test`     | Same as baseline, plus the grading harness (`tests/test_tb_raster_walker.py`) and the hidden implementations (`grading/rtl/golden.sv` + `grading/rtl/mut_*.sv`). Used for grading. |
+| `raster_walker_test`     | Same as baseline, plus the grading harness (`tests/test_tb_raster_walker.py`), the graded implementations (`grading/rtl/golden.sv` + `grading/rtl/mut_*.sv`), and this walkthrough. Used for grading. |
 | `raster_walker_golden`   | Same as baseline, but with the complete golden testbench in `tb/tb_raster_walker.sv`. (To be implemented by you) |
 
 To look at the grading harness and the implementations it grades against:
