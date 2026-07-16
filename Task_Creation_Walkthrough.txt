@@ -23,9 +23,9 @@ succeeds more often — raising its pass rate into a target band, without
 giving the answers away**.
 
 You are given a task where an AI agent (Claude Sonnet) achieves
-approximately **20% pass rate** across 10 independent attempts. Your goal
+approximately **10% pass rate** across 10 independent attempts. Your goal
 is to modify the prompt/specification so that the agent's pass rate rises
-to **between 50% and 80%** (out of at least 10 runs), while the specification
+to **between 40% and 70%** (out of at least 10 runs), while the specification
 remains an honest, self-contained module spec: you may clarify, illustrate,
 and re-emphasize, but the document must still read as a specification — not
 as a list of the grader's test cases.
@@ -228,9 +228,9 @@ git checkout origin/raster_walker_test -- tb/tb_raster_walker.sv
 Here are the results of 10 runs of Claude Sonnet 4.5 attempting this task
 with the current spec:
 
-**[View the 10 runs here](https://hud.ai/jobs/b1110e9066714432bf1cbd1dbf32f81f)**
+**[View the 10 runs here](https://hud.ai/jobs/3334e698deb54cc99bbfd73ff583bda5)**
 
-The agent achieves approximately **20% pass rate**.
+The agent achieves approximately **10% pass rate**.
 
 Open several **failing** runs (and any passing ones) and carefully read
 through the agent's work. Pay attention to:
@@ -270,7 +270,7 @@ transcript).
 ## Section 5: Modifying the Specification (~1–2 hrs)
 
 Your goal is to modify `docs/spec.md` (and/or `prompt.txt`) so that the
-agent's pass rate rises to **between 50% and 80%** — while keeping the
+agent's pass rate rises to **between 40% and 70%** — while keeping the
 document an honest specification.
 
 **The rules (hard constraints — submissions violating them are rejected):**
@@ -445,19 +445,19 @@ uv run python run_eval.py --ids raster_walker --agent claude --model claude-sonn
 
 `run_eval.py` starts a fresh Docker container per rollout, runs the agent, grades each attempt, and prints progress plus a job URL like `https://hud.ai/jobs/<job-id>`. Open that link to inspect individual rollouts.
 
-Iterate until you achieve a 50–80% pass rate.
+Iterate until you achieve a 40–70% pass rate.
 
 ---
 
 ## Section 7: Submission
 
-Once you have achieved a pass rate between 50% and 80%, email your liaison with:
+Once you have achieved a pass rate between 40% and 70%, email your liaison with:
 
 1. **Your Github Repo Link** with the final specification and golden testbench
 2. **Your HUD results link** showing the pass rate
 3. **A written analysis** containing:
   **A. Failure Mechanism Analysis:**
-   Pick 1 failing run from the [original 10-run evaluation](https://hud.ai/jobs/b1110e9066714432bf1cbd1dbf32f81f). For that run, describe:
+   Pick 1 failing run from the [original 10-run evaluation](https://hud.ai/jobs/3334e698deb54cc99bbfd73ff583bda5). For that run, describe:
   - Where the agent's expected behavior came from (which spec clauses it used, and which parts of its oracle came from prior knowledge instead of the text)
   - Whether the failure was a wrong oracle (its testbench rejected the conforming implementation) or missing coverage (a defective implementation survived), with the exact spec clause / surviving variant identified
    **B. Vulnerability Analysis:**
