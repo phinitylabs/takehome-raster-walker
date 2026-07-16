@@ -22,8 +22,8 @@ domain; synchronous, active-high reset.
 | `step_dir`   | out | `logic`         | Direction of the offered step: 0 = E `(x+1, y)`, 1 = NE `(x+1, y+1)`. In any cycle in which `step_valid` is 0 it holds its most recent value (0 after reset). |
 | `step_ready` | in  | `logic`         | The consumer accepts the offered step. |
 
-Parameter: `W` (`int`, ≥ 2, default 8) — width of `dx` and `dy`. Grading
-uses the default `W = 8`.
+Parameter: `W` (`int`, ≥ 2, default 8) — width of `dx` and `dy`. The
+deliverable testbench uses the default `W = 8`.
 
 ## 3. Cycles, sampling, and acceptance
 
