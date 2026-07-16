@@ -4,14 +4,12 @@
 //
 // THIS BRANCH IS YOURS: implement your golden testbench in this file,
 // according to prompt.txt and docs/spec.md, and push it to your fork.
-// Contract, checked mechanically by the grader:
+// Verdict contract:
 //   - print a line containing TB_PASS and call $finish if and only if
 //     every check passed;
 //   - print a line containing TB_FAIL and terminate with $fatal(1) on the
 //     first failed check.
-// The grader compiles this file together with an unknown implementation of
-// raster_walker (it replaces sources/raster_walker.sv); rely on nothing but
-// docs/spec.md.
+// Judge the DUT against docs/spec.md alone; rely on nothing else.
 //
 module tb_raster_walker;
 
