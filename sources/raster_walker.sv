@@ -1,9 +1,8 @@
 `timescale 1ns/1ps
 //
-// raster_walker -- interface stub. This file is NOT an implementation and is
-// NOT graded: the grader replaces it entirely with its own implementations
-// under test. You may implement the module here locally to exercise your
-// testbench (see prompt.txt); whatever you put in this file is discarded.
+// raster_walker -- interface placeholder. This file is NOT an implementation
+// and is not part of the deliverable. You may implement the module here
+// locally to exercise your testbench (see prompt.txt).
 //
 module raster_walker #(
     parameter int W = 8
